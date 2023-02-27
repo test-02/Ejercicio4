@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Convertidor="clr-namespace:Ejercicio4.Converters"
+             Title="Registro Empleado"
+             x:Class="Ejercicio4.Views.VerRegistro">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage" />
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Margin="10,10,10,0" x:Name="pinkImage" Source="{Binding image, Converter={StaticResource ByteToImage}}"  HeightRequest="250" BackgroundColor="Pink" />
+
+            <Label x:Name="lblCod" Text="{Binding id}" TextColor="White"/>
+
+            <Label Text="Nombre:" Margin="10,0,0,0" FontSize="Body" TextColor="Black"/>
+            <Entry x:Name="txtNombre" Text="{Binding nombre}" Margin="10,0,0,10" IsEnabled="False"/>
+
+            <Label x:Name="Descripcion" Text="Descripcion:" Margin="10,0,0,0" FontSize="Body" TextColor="Black" />
+            <Entry x:Name="txtDes" Text="{Binding descripcion}" Margin="10,0,0,10" IsEnabled="False"/>
+
+
+            <Button x:Name="Lista" Text="Listar Empleados" Clicked="Lista_Clicked" TextColor="White" BackgroundColor="Blue" Margin="30,5,30,5"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
